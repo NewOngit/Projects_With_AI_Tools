@@ -165,6 +165,6 @@ def scatter_plot(Dataframe,target):
    """          
     
 #####Plotting the scatter plot
-scatter_plot(df_,df_.columns[len(df_.columns)-1])scatter_plot(df_,df_.columns[len(df_.columns)-1])
+scatter_plot(df_,df_.columns[len(df_.columns)-1])
 
 
