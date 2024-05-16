@@ -148,3 +148,23 @@ def scatter_plot(Dataframe,target):
              i=i+1
              
     
+
+#!!!!!!!!!!!!!!!!!!!!!!Deprecated Version
+"""
+#Function definition for the density plotting of Dataset 
+def scatter_plot(Dataframe,target):
+    col=Dataframe.columns
+    i=0
+    for _ in col: 
+         if target!=_:
+             plt.figure(i)
+             plt.scatter(Dataframe[target],Dataframe[_],color="blue")
+             plt.ylabel(_)
+             plt.xlabel(target)
+             i=i+1
+   """          
+    
+#####Plotting the scatter plot
+scatter_plot(df_,df_.columns[len(df_.columns)-1])scatter_plot(df_,df_.columns[len(df_.columns)-1])
+
+
