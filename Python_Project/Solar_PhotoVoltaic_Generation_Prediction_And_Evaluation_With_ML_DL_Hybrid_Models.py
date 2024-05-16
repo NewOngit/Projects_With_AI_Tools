@@ -701,7 +701,6 @@ test_predict_H.shape
 plt.plot(test_predict_H)
 plt.plot(test_y)
 
-
 #converting from three dimension to its original series dataframe
 train_X_Original_H=pd.DataFrame(transform_(train_X_H))
 test_X_Original_H=pd.DataFrame(transform_(test_X_H))
