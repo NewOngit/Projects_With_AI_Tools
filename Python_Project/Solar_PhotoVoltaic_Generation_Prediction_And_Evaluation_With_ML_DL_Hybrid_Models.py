@@ -88,4 +88,63 @@ else :
 #Dropping the inappropriate type columns from the dataset
 df_=df_.drop(['Date'],axis=1)
 
+df_.columns
 
+df_=df_.astype(float)
+
+
+###################################Line Plotting of the Dataset#############################
+def line_plot(Dataframe):
+    cols=Dataframe.columns
+    df_size=int(len(Dataframe))
+    fig,axs=plt.subplots(len(cols),2)
+    fig.set_figwidth(20)
+    fig.set_figheight(120)
+    i=0
+    for _ in cols:
+        axs[i,0].set_title('Whole Dataset of '+str(_),fontsize=20)
+        axs[i,0].plot(Dataframe[_])
+        axs[i,1].set_title('5% Dataset of '+str(_),fontsize=20)
+        axs[i,1].plot(Dataframe[_][df_size-int(0.05*df_size):],'tab:orange')
+        i=i+1
+        
+
+line_plot(df_)
+
+#Function definition for the density plotting of Dataset 
+def density_plot(Dataframe):
+ cols=Dataframe.columns
+ #fig,axs=plt.subplots(len(cols),1)
+ i=0
+ for _ in cols:
+     plt.figure(i)
+     Dataframe[_].plot.density(color="blue")
+     plt.title(_)
+     i=i+1 
+
+density_plot(df_)
+
+
+def heatmap(Dataframe):
+    df=Dataframe.corr()
+    sns.heatmap(df,cmap='RdBu',vmin=-1,vmax=1,annot=True)
+
+heatmap(df_)
+
+#Function definition for the density plotting of Dataset 
+def scatter_plot(Dataframe,target):
+    col=Dataframe.columns
+    fig,axs=plt.subplots(len(col)-1)
+    fig.set_figwidth(15)
+    fig.set_figheight(90)
+    fig.tight_layout(pad=5.0)
+    i=0
+    for _ in col: 
+         if target!=_:
+             axs[i].set_title('Scatter Plot between '+target+" and "+str(_),fontsize=20)
+             axs[i].scatter(Dataframe[target],Dataframe[_])
+             axs[i].set_ylabel(_,fontsize=18)
+             axs[i].set_xlabel(target,fontsize=18)
+             i=i+1
+             
+    
